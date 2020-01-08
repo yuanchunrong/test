@@ -63,6 +63,9 @@ spec:
             # consult https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/#populate-a-volume-with-data-stored-in-a-configmap
             - name: config-volume
               mountPath: /etc/config
+            - name: $APP_INSTANCE_NAME-alertmanager-data
+              mountPath: "/data"
+              subPath: ""
           resources:
             # Resource limits of 50 MiB of memory and 10m of CPU. 
             # To learn more about resource limits and requests, and how to tune them, 
@@ -77,8 +80,6 @@ spec:
         - name: config-volume
           configMap:
             name: $APP_INSTANCE_NAME-alertmanager-config
-        - name: $APP_INSTANCE_NAME-alertmanager-data
-          emptyDir: {}
       # Configures Pod anti-affinity so that Alertmanager Pods are assigned to different Nodes. 
       # To learn more about Pod affinity and anti-affinity, consult https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
       affinity:
@@ -94,3 +95,13 @@ spec:
   # Attach `2Gi` of DigitalOcean Block Storage to each Alertmanager Pod. 
   # This volume will be attached at the `/data` path and will be used to store Alertmanager data.
   # To learn more about `volumeClaimTemplate`, consult https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/#stable-storage
+  volumeClaimTemplates:
+  - metadata:
+      name: $APP_INSTANCE_NAME-alertmanager-data
+    spec:
+      storageClassName: local-storage-alertmanager
+      accessModes:
+        - ReadWriteOnce
+      resources:
+        requests:
+          storage: "2Gi"
