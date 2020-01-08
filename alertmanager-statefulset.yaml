@@ -94,13 +94,3 @@ spec:
   # Attach `2Gi` of DigitalOcean Block Storage to each Alertmanager Pod. 
   # This volume will be attached at the `/data` path and will be used to store Alertmanager data.
   # To learn more about `volumeClaimTemplate`, consult https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/#stable-storage
-  volumeClaimTemplates:
-  - metadata:
-      name: $APP_INSTANCE_NAME-alertmanager-data
-    spec:
-      storageClassName: local-storage-alertmanager
-      accessModes:
-        - ReadWriteOnce
-      resources:
-        requests:
-          storage: "2Gi"

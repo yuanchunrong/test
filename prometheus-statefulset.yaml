@@ -72,8 +72,6 @@ spec:
         - name: config-volume
           configMap:
             name: $APP_INSTANCE_NAME-prometheus-config
-        - name: $APP_INSTANCE_NAME-alertmanager-data
-          emptyDir: {}
       # Configures Pod anti-affinity so that Prometheus Pods are assigned to different Nodes. 
       affinity:
         podAntiAffinity:

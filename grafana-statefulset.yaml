@@ -105,8 +105,6 @@ spec:
         - name: dashboards
           configMap:
             name: $APP_INSTANCE_NAME-dashboards
-        - name: $APP_INSTANCE_NAME-alertmanager-data
-          emptyDir: {}
   volumeClaimTemplates:
   - metadata:
       name: $APP_INSTANCE_NAME-grafana-data
