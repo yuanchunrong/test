@@ -1,0 +1,24 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: stephenshank
+Build-Jdk: 1.8.0_181-google-v7
+Extension-Name: google-oauth-plugin
+Specification-Title: This plugin implements the OAuth Credentials inte
+ rfaces to surface Google Service Account credentials to Jenkins.
+Implementation-Title: google-oauth-plugin
+Implementation-Version: 1.0.0
+Group-Id: org.jenkins-ci.plugins
+Short-Name: google-oauth-plugin
+Long-Name: Google OAuth Credentials plugin
+Url: https://wiki.jenkins.io/display/JENKINS/Google+OAuth+Plugin
+Compatible-Since-Version: 1.0.0
+Minimum-Java-Version: 1.8
+Plugin-Version: 1.0.0
+Hudson-Version: 2.138.4
+Jenkins-Version: 2.138.4
+Plugin-Dependencies: credentials:2.2.0,oauth-credentials:0.3
+Plugin-Developers: Andrey Stroilov:astroilov:,Craig Barber:craigdbarbe
+ r:craigbarber@google.com,Stephen Shank:stephenashank:stephenshank@goo
+ gle.com
+
